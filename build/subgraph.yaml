@@ -1,14 +1,14 @@
 specVersion: 0.0.2
 description: DAOHaus Boosts Subgraph
-repository: 'https://github.com/hausdao/daohaus-boosts-subgraph'
+repository: https://github.com/hausdao/daohaus-boosts-subgraph
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: TransmutationFactory
     network: kovan
     source:
-      address: '0x46A8E5b4B15b81b14AFf10Ac220c5A7B13E8282A'
+      address: "0x46A8E5b4B15b81b14AFf10Ac220c5A7B13E8282A"
       abi: TransmutationFactory
       startBlock: 20544190
     mapping:
@@ -19,11 +19,11 @@ dataSources:
         - Deployment
       abis:
         - name: TransmutationFactory
-          file: ./abis/TransmutationFactory.json
+          file: TransmutationFactory/abis/TransmutationFactory.json
       eventHandlers:
-        - event: 'Deployment(address,address,address,address,address)'
+        - event: Deployment(address,address,address,address,address)
           handler: handleTransmutationDeployment
-      file: ./src/factory-mappings.ts
+      file: TransmutationFactory/TransmutationFactory.wasm
 templates:
   - kind: ethereum/contract
     name: TransmutationTemplate
@@ -34,12 +34,12 @@ templates:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
-      file: ./src/transmutation-mappings.ts
+      file: templates/TransmutationTemplate/TransmutationTemplate.wasm
       entities:
         - Transmutation
       abis:
         - name: Transmutation
-          file: ./abis/Transmutation.json
+          file: TransmutationTemplate/abis/Transmutation.json
       eventHandlers:
-        - event: 'Deploy(address,address,address,address)'
+        - event: Deploy(address,address,address,address)
           handler: handleDeploy

@@ -1,0 +1,7 @@
+specVersion: 0.0.2
+description: DAOHaus Boosts Subgraph
+repository: https://github.com/hausdao/daohaus-boosts-subgraph
+schema:
+  file: ./schema.graphql
+dataSources: []
+templates: []
