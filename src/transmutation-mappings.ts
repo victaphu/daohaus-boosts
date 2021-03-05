@@ -9,7 +9,6 @@ import { Transmutation } from "../generated/schema";
 // );
 export function handleDeploy(event: Deploy): void {
   let transmutation = Transmutation.load(event.address.toHex());
-  transmutation.giveToken = event.params.giveToken;
-  transmutation.getToken = event.params.getToken;
+  transmutation.capitalToken = event.params.getToken;
   transmutation.save();
 }

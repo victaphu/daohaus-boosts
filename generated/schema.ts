@@ -78,17 +78,8 @@ export class Transmutation extends Entity {
     this.set("transmutation", Value.fromBytes(value));
   }
 
-  get trust(): Bytes {
+  get trust(): Bytes | null {
     let value = this.get("trust");
-    return value.toBytes();
-  }
-
-  set trust(value: Bytes) {
-    this.set("trust", Value.fromBytes(value));
-  }
-
-  get giveToken(): Bytes | null {
-    let value = this.get("giveToken");
     if (value === null || value.kind == ValueKind.NULL) {
       return null;
     } else {
@@ -96,16 +87,16 @@ export class Transmutation extends Entity {
     }
   }
 
-  set giveToken(value: Bytes | null) {
+  set trust(value: Bytes | null) {
     if (value === null) {
-      this.unset("giveToken");
+      this.unset("trust");
     } else {
-      this.set("giveToken", Value.fromBytes(value as Bytes));
+      this.set("trust", Value.fromBytes(value as Bytes));
     }
   }
 
-  get getToken(): Bytes | null {
-    let value = this.get("getToken");
+  get capitalToken(): Bytes | null {
+    let value = this.get("capitalToken");
     if (value === null || value.kind == ValueKind.NULL) {
       return null;
     } else {
@@ -113,11 +104,28 @@ export class Transmutation extends Entity {
     }
   }
 
-  set getToken(value: Bytes | null) {
+  set capitalToken(value: Bytes | null) {
     if (value === null) {
-      this.unset("getToken");
+      this.unset("capitalToken");
     } else {
-      this.set("getToken", Value.fromBytes(value as Bytes));
+      this.set("capitalToken", Value.fromBytes(value as Bytes));
+    }
+  }
+
+  get details(): string | null {
+    let value = this.get("details");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set details(value: string | null) {
+    if (value === null) {
+      this.unset("details");
+    } else {
+      this.set("details", Value.fromString(value as string));
     }
   }
 }

@@ -4,7 +4,7 @@ type Transmutation @entity {
   distributionToken: Bytes! # address
   minion: Bytes! # address
   transmutation: Bytes! # address
-  trust: Bytes! # address
-  giveToken: Bytes # address
-  getToken: Bytes # address
+  trust: Bytes # address
+  capitalToken: Bytes # address
+  details: String
 }

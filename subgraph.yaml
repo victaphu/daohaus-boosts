@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: TransmutationFactory
-    network: kovan
+    network: xdai
     source:
-      address: '0x46A8E5b4B15b81b14AFf10Ac220c5A7B13E8282A'
+      address: '0x2BE7130DF2Ba6822464900cBD818BcDB8cf73d09'
       abi: TransmutationFactory
-      startBlock: 20544190
+      startBlock: 11814810
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -24,10 +24,32 @@ dataSources:
         - event: 'Deployment(address,address,address,address,address)'
           handler: handleTransmutationDeployment
       file: ./src/factory-mappings.ts
+  - kind: ethereum/contract
+    name: TransmutationV2Factory
+    network: xdai
+    source:
+      address: '0xf88eaD028100529a540122456A68CA3ca416ccA3'
+      abi: TransmutationV2Factory
+      startBlock: 14846276
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - SummonTransmutation
+      abis:
+        - name: TransmutationV2Factory
+          file: ./abis/TransmutationV2Factory.json
+      eventHandlers:
+        - event: >-
+            SummonTransmutation(indexed address,indexed address,indexed
+            address,string,address,address)
+          handler: handleSummonTransmutation
+      file: ./src/factory-mappings.ts
 templates:
   - kind: ethereum/contract
     name: TransmutationTemplate
-    network: kovan
+    network: xdai
     source:
       abi: Transmutation
     mapping:
