@@ -1,20 +1,5 @@
 [
   {
-    "inputs": [
-      { "internalType": "address", "name": "_dao", "type": "address" },
-      { "internalType": "address", "name": "_uberHaus", "type": "address" },
-      { "internalType": "address", "name": "_Haus", "type": "address" },
-      {
-        "internalType": "uint256",
-        "name": "_delegateRewardFactor",
-        "type": "uint256"
-      },
-      { "internalType": "string", "name": "_DESC", "type": "string" }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
     "anonymous": false,
     "inputs": [
       {
@@ -272,6 +257,19 @@
       {
         "indexed": false,
         "internalType": "address",
+        "name": "uberHaus",
+        "type": "address"
+      }
+    ],
+    "name": "SetUberHaus",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
         "name": "quitter",
         "type": "address"
       },
@@ -290,39 +288,6 @@
     ],
     "name": "SignalRageQuit",
     "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "amountToCollect",
-        "type": "uint256"
-      }
-    ],
-    "name": "TokensCollected",
-    "type": "event"
-  },
-  {
-    "inputs": [],
-    "name": "DESC",
-    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "GUILD",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "stateMutability": "view",
-    "type": "function"
   },
   {
     "inputs": [],
@@ -367,6 +332,13 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "approveUberHaus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "uint256", "name": "_proposalId", "type": "uint256" },
       { "internalType": "uint8", "name": "_type", "type": "uint8" }
@@ -377,21 +349,17 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "uint256", "name": "amount", "type": "uint256" }
-    ],
-    "name": "claimRewards",
+    "inputs": [],
+    "name": "claimDelegateReward",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "token", "type": "address" }
-    ],
-    "name": "collectTokens",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "inputs": [],
+    "name": "controller",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -426,15 +394,17 @@
     "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "name": "delegates",
     "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "appointmentTime",
-        "type": "uint256"
-      },
-      { "internalType": "uint256", "name": "retireTime", "type": "uint256" },
+      { "internalType": "bool", "name": "rewarded", "type": "bool" },
       { "internalType": "bool", "name": "serving", "type": "bool" },
       { "internalType": "bool", "name": "impeached", "type": "bool" }
     ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "desc",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -476,28 +446,31 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "user", "type": "address" },
-      { "internalType": "address", "name": "token", "type": "address" }
+      { "internalType": "address", "name": "delegate", "type": "address" }
     ],
-    "name": "getUserTokenBalance",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "amount", "type": "uint256" }
-    ],
-    "name": "hausWithdraw",
+    "name": "impeachDelegate",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "delegate", "type": "address" }
+      { "internalType": "address", "name": "_dao", "type": "address" },
+      { "internalType": "address", "name": "_uberHaus", "type": "address" },
+      { "internalType": "address", "name": "_controller", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_initialDelegate",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_delegateRewardFactor",
+        "type": "uint256"
+      },
+      { "internalType": "string", "name": "_desc", "type": "string" }
     ],
-    "name": "impeachDelegate",
+    "name": "init",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -608,6 +581,15 @@
     "name": "uberHaus",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_uberHaus", "type": "address" }
+    ],
+    "name": "updateUberHaus",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

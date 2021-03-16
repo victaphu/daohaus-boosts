@@ -10,7 +10,7 @@ module.exports.config = {
       {
         name: "transmutationV2",
         template: "transmutationV2-ds.yaml",
-        address: "0x235320BEfFB2c3ca8f4b2b428dF7b740009cF16c",
+        address: "0xbca622291fFe797C77a8Bc6D000584b22877e971",
         startBlock: 23758392,
       },
     ],
@@ -32,7 +32,7 @@ module.exports.config = {
       {
         name: "transmutationV2",
         template: "transmutationV2-ds.yaml",
-        address: "0xf88eaD028100529a540122456A68CA3ca416ccA3",
+        address: "0x7F94ec015665743fE84A7f59297eD86A0470e069",
         startBlock: 14846276,
       },
     ],

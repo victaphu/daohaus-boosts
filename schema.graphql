@@ -8,3 +8,10 @@ type Transmutation @entity {
   capitalToken: Bytes # address
   details: String
 }
+
+type UberHausMembership @entity {
+  id: ID!
+  moloch: Bytes! # address
+  minion: Bytes! # address
+  uberHaus: Bytes! # address
+}

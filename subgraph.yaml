@@ -28,7 +28,7 @@ dataSources:
     name: TransmutationV2Factory
     network: xdai
     source:
-      address: '0xf88eaD028100529a540122456A68CA3ca416ccA3'
+      address: '0x7F94ec015665743fE84A7f59297eD86A0470e069'
       abi: TransmutationV2Factory
       startBlock: 14846276
     mapping:
