@@ -45,6 +45,26 @@ dataSources:
             address,string,address,address)
           handler: handleSummonTransmutation
       file: TransmutationFactory/TransmutationFactory.wasm
+  - kind: ethereum/contract
+    name: WrapNZapFactory
+    network: xdai
+    source:
+      address: "0x8464135c8F25Da09e49BC8782676a84730C318bC"
+      abi: WrapNZapFactory
+      startBlock: 15518416
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WrapNZap
+      abis:
+        - name: WrapNZapFactory
+          file: WrapNZapFactory/abis/WrapNZapFactory.json
+      eventHandlers:
+        - event: NewWrapNZap(address,address,address)
+          handler: handleNewWrapNZap
+      file: WrapNZapFactory/WrapNZapFactory.wasm
 templates:
   - kind: ethereum/contract
     name: TransmutationTemplate

@@ -15,3 +15,9 @@ type UberHausMembership @entity {
   minion: Bytes! # address
   uberHaus: Bytes! # address
 }
+
+type WrapNZap @entity {
+  id: ID!
+  moloch: Bytes! # address
+  wrapper: Bytes! # address
+}

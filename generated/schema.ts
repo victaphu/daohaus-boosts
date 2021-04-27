@@ -129,3 +129,110 @@ export class Transmutation extends Entity {
     }
   }
 }
+
+export class UberHausMembership extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save UberHausMembership entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save UberHausMembership entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("UberHausMembership", id.toString(), this);
+  }
+
+  static load(id: string): UberHausMembership | null {
+    return store.get("UberHausMembership", id) as UberHausMembership | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get moloch(): Bytes {
+    let value = this.get("moloch");
+    return value.toBytes();
+  }
+
+  set moloch(value: Bytes) {
+    this.set("moloch", Value.fromBytes(value));
+  }
+
+  get minion(): Bytes {
+    let value = this.get("minion");
+    return value.toBytes();
+  }
+
+  set minion(value: Bytes) {
+    this.set("minion", Value.fromBytes(value));
+  }
+
+  get uberHaus(): Bytes {
+    let value = this.get("uberHaus");
+    return value.toBytes();
+  }
+
+  set uberHaus(value: Bytes) {
+    this.set("uberHaus", Value.fromBytes(value));
+  }
+}
+
+export class WrapNZap extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save WrapNZap entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save WrapNZap entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("WrapNZap", id.toString(), this);
+  }
+
+  static load(id: string): WrapNZap | null {
+    return store.get("WrapNZap", id) as WrapNZap | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get moloch(): Bytes {
+    let value = this.get("moloch");
+    return value.toBytes();
+  }
+
+  set moloch(value: Bytes) {
+    this.set("moloch", Value.fromBytes(value));
+  }
+
+  get wrapper(): Bytes {
+    let value = this.get("wrapper");
+    return value.toBytes();
+  }
+
+  set wrapper(value: Bytes) {
+    this.set("wrapper", Value.fromBytes(value));
+  }
+}

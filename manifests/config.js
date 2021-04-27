@@ -35,6 +35,12 @@ module.exports.config = {
         address: "0x7F94ec015665743fE84A7f59297eD86A0470e069",
         startBlock: 14846276,
       },
+      {
+        name: "wrapNZap",
+        template: "wrapNZap-ds.yaml",
+        address: "0x8464135c8F25Da09e49BC8782676a84730C318bC",
+        startBlock: 15518416,
+      },
     ],
     templates: [
       {
