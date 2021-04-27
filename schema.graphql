@@ -9,13 +9,6 @@ type Transmutation @entity {
   details: String
 }
 
-type UberHausMembership @entity {
-  id: ID!
-  moloch: Bytes! # address
-  minion: Bytes! # address
-  uberHaus: Bytes! # address
-}
-
 type WrapNZap @entity {
   id: ID!
   moloch: Bytes! # address
