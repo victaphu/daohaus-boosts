@@ -6,7 +6,9 @@
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy-kovan": "node manifests/deploy-prep.js kovan && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-kovan",
+    "deploy-rinkeby": "node manifests/deploy-prep.js rinkeby && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-rinkeby",
     "deploy-xdai": "node manifests/deploy-prep.js xdai && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-xdai",
+    "deploy-matic": "node manifests/deploy-prep.js matic && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-matic",
     "create-local": "graph create odyssy-automaton/daohaus-boosts --node http://127.0.0.1:8020",
     "deploy-local": "graph deploy odyssy-automaton/daohaus-boosts --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },

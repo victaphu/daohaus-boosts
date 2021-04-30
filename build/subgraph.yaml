@@ -5,53 +5,12 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: TransmutationFactory
-    network: xdai
-    source:
-      address: "0x2BE7130DF2Ba6822464900cBD818BcDB8cf73d09"
-      abi: TransmutationFactory
-      startBlock: 11814810
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - Deployment
-      abis:
-        - name: TransmutationFactory
-          file: TransmutationFactory/abis/TransmutationFactory.json
-      eventHandlers:
-        - event: Deployment(address,address,address,address,address)
-          handler: handleTransmutationDeployment
-      file: TransmutationFactory/TransmutationFactory.wasm
-  - kind: ethereum/contract
-    name: TransmutationV2Factory
-    network: xdai
-    source:
-      address: "0x7F94ec015665743fE84A7f59297eD86A0470e069"
-      abi: TransmutationV2Factory
-      startBlock: 14846276
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - SummonTransmutation
-      abis:
-        - name: TransmutationV2Factory
-          file: TransmutationV2Factory/abis/TransmutationV2Factory.json
-      eventHandlers:
-        - event: SummonTransmutation(indexed address,indexed address,indexed
-            address,string,address,address)
-          handler: handleSummonTransmutation
-      file: TransmutationFactory/TransmutationFactory.wasm
-  - kind: ethereum/contract
     name: WrapNZapFactory
-    network: xdai
+    network: matic
     source:
-      address: "0x8464135c8F25Da09e49BC8782676a84730C318bC"
+      address: "0xbf9e327d465A4A160fA7805282Fb8C7aB892770a"
       abi: WrapNZapFactory
-      startBlock: 15518416
+      startBlock: 13846231
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -65,22 +24,4 @@ dataSources:
         - event: NewWrapNZap(address,address,address)
           handler: handleNewWrapNZap
       file: WrapNZapFactory/WrapNZapFactory.wasm
-templates:
-  - kind: ethereum/contract
-    name: TransmutationTemplate
-    network: xdai
-    source:
-      abi: Transmutation
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      file: templates/TransmutationTemplate/TransmutationTemplate.wasm
-      entities:
-        - Transmutation
-      abis:
-        - name: Transmutation
-          file: TransmutationTemplate/abis/Transmutation.json
-      eventHandlers:
-        - event: Deploy(address,address,address,address)
-          handler: handleDeploy
+templates: []

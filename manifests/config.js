@@ -13,6 +13,12 @@ module.exports.config = {
         address: "0xbca622291fFe797C77a8Bc6D000584b22877e971",
         startBlock: 23758392,
       },
+      {
+        name: "wrapNZap",
+        template: "wrapNZap-ds.yaml",
+        address: "0xbf9e327d465A4A160fA7805282Fb8C7aB892770a",
+        startBlock: 24527390,
+      },
     ],
     templates: [
       {
@@ -48,5 +54,27 @@ module.exports.config = {
         template: "transmutation-template.yaml",
       },
     ],
+  },
+  rinkeby: {
+    dataSources: [
+      {
+        name: "wrapNZap",
+        template: "wrapNZap-ds.yaml",
+        address: "0x4e521FF388c83b4c945a33984ba42Efb73Cc04e6",
+        startBlock: 8493415,
+      },
+    ],
+    templates: []
+  },
+  matic: {
+    dataSources: [
+      {
+        name: "wrapNZap",
+        template: "wrapNZap-ds.yaml",
+        address: "0xbf9e327d465A4A160fA7805282Fb8C7aB892770a",
+        startBlock: 13846231,
+      },
+    ],
+    templates: []
   },
 };
