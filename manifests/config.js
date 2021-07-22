@@ -1,4 +1,15 @@
 module.exports.config = {
+  mainnet: {
+    dataSources: [
+      {
+        name: "wrapNZap",
+        template: "wrapNZap-ds.yaml",
+        address: "0x4e521FF388c83b4c945a33984ba42Efb73Cc04e6",
+        startBlock: 12872022,
+      },
+    ],
+    templates: [],
+  },
   kovan: {
     dataSources: [
       {
@@ -64,7 +75,7 @@ module.exports.config = {
         startBlock: 8493415,
       },
     ],
-    templates: []
+    templates: [],
   },
   matic: {
     dataSources: [
@@ -75,6 +86,6 @@ module.exports.config = {
         startBlock: 13846231,
       },
     ],
-    templates: []
+    templates: [],
   },
 };

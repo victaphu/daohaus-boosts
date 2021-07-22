@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: WrapNZapFactory
-    network: matic
+    network: mainnet
     source:
-      address: "0xbf9e327d465A4A160fA7805282Fb8C7aB892770a"
+      address: "0x4e521FF388c83b4c945a33984ba42Efb73Cc04e6"
       abi: WrapNZapFactory
-      startBlock: 13846231
+      startBlock: 12872022
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
