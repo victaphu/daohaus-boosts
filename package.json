@@ -5,13 +5,17 @@
     "create": "graph create odyssy-automaton/daohaus-boosts --node https://api.thegraph.com/deploy/",
     "codegen": "graph codegen",
     "build": "graph build",
+    "build:all": "yarn codegen && yarn build",
+    "prepare:harmonyTest": "npm run build:all && node manifests/deploy-prep.js harmonyTest",
+    "deploy-harmonyTest": "node manifests/deploy-prep.js harmonyTest && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-stats",
     "deploy-main": "node manifests/deploy-prep.js mainnet && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts",
     "deploy-kovan": "node manifests/deploy-prep.js kovan && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-kovan",
     "deploy-rinkeby": "node manifests/deploy-prep.js rinkeby && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-rinkeby",
     "deploy-xdai": "node manifests/deploy-prep.js xdai && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-xdai",
     "deploy-matic": "node manifests/deploy-prep.js matic && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-matic",
-    "create-local": "graph create odyssy-automaton/daohaus-boosts --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy odyssy-automaton/daohaus-boosts --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+    "create-local": "graph create victaphu/daohaus-boosts --node http://127.0.0.1:8020",
+    "remove-local": "graph remove --node http://localhost:8020/ victaphu/daohaus-boosts",
+    "deploy-local": "graph deploy victaphu/daohaus-boosts --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.19.0",

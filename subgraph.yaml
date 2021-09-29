@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: WrapNZapFactory
-    network: mainnet
+    network: harmonyTest
     source:
-      address: '0x4e521FF388c83b4c945a33984ba42Efb73Cc04e6'
+      address: '0x42860b366D4c94E10B8b315239020B56B62dfFa5'
       abi: WrapNZapFactory
-      startBlock: 12872022
+      startBlock: 15148909
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

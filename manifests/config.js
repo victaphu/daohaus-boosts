@@ -88,4 +88,15 @@ module.exports.config = {
     ],
     templates: [],
   },
+  harmonyTest: {
+    dataSources: [
+      {
+        name: "wrapNZap",
+        template: "wrapNZap-ds.yaml",
+        address: "0x42860b366D4c94E10B8b315239020B56B62dfFa5",
+        startBlock: 15148909,
+      },
+    ],
+    templates: [],
+  },
 };
